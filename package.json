@@ -8,12 +8,15 @@
   "scripts": {
     "dev:client": "npm run dev --workspace=axios-client",
     "dev:server": "npm run dev --workspace=express-server",
-    "dev": "npm run dev:server && npm run dev:client",
+    "dev": "concurrently --names \"server,client\" --prefix-colors \"blue,green\" \"npm run dev:server\" \"sleep 1 && npm run dev:client\"",
     "build": "npm run build --workspaces",
     "clean": "npm run clean --workspaces"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "NPM workspace with axios-client and express-server packages"  
+  "description": "NPM workspace with axios-client and express-server packages",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
 }

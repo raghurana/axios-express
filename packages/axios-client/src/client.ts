@@ -45,6 +45,12 @@ const example = async () => {
   try {
     const data = await client.get("/api/health");
     console.log("Health check response:", data);
+
+    const data2 = await client.put("/api/data", {
+      name: "John Doe",
+      value: "123",
+    });
+    console.log("Data response:", data2);
   } catch (error) {
     console.error("Error:", error);
   }
