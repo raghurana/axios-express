@@ -15,9 +15,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "NPM workspace with axios-client and express-server packages",
-  "devDependencies": {
-    "typescript": "^5.3.0",
-    "@types/node": "^20.0.0"
-  }
+  "description": "NPM workspace with axios-client and express-server packages"  
 }

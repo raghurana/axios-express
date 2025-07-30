@@ -24,7 +24,11 @@ export class ApiClient {
   }
 
   async put<T>(url: string, data?: any): Promise<T> {
-    const response: AxiosResponse<T> = await this.client.put(url, data);
+    const response: AxiosResponse<T> = await this.client.request({
+      method: "PUT",
+      url,
+      data,
+    });
     return response.data;
   }
 
@@ -37,16 +41,13 @@ export class ApiClient {
 // Example usage
 const client = new ApiClient();
 
-async function example() {
+const example = async () => {
   try {
     const data = await client.get("/api/health");
     console.log("Health check response:", data);
   } catch (error) {
     console.error("Error:", error);
   }
-}
+};
 
-// Run the example if this file is executed directly
-if (require.main === module) {
-  example();
-}
+example();

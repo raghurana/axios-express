@@ -43,6 +43,20 @@ app.post("/api/data", (req: Request, res: Response) => {
   });
 });
 
+app.put("/api/data", (req: Request, res: Response) => {
+  const { name, value } = req.body;
+  console.log("req.headers", req.headers);
+  console.log("Data received:", req.body);
+  res.json({
+    message: "Data received successfully",
+    received: {
+      name,
+      value,
+      timestamp: new Date().toISOString(),
+    },
+  });
+});
+
 // Error handling middleware
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   console.error("Error:", err);
