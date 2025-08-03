@@ -1,27 +1,35 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Attach to client",
-            "type": "node",
-            "request": "attach",
-            "port": 9229,
-            "restart": true,
-            "skipFiles": [
-                "<node_internals>/**",
-                "${workspaceFolder}/node_modules/**"
-            ]
-        },
-        {
-            "name": "Attach to server",
-            "type": "node",
-            "request": "attach",
-            "port": 9230,
-            "restart": true,
-            "skipFiles": [
-                "<node_internals>/**",
-                "${workspaceFolder}/node_modules/**"
-            ]
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Client",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "tsx",
+      "args": [
+        "watch",
+        "${workspaceFolder}/packages/axios-client/src/client.ts"
+      ],
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+    },
+    {
+      "name": "Launch Server",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "tsx",
+      "args": [
+        "watch",
+        "${workspaceFolder}/packages/express-server/src/server.ts"
+      ],
+      "cwd": "${workspaceFolder}",
+      "skipFiles": ["<node_internals>/**", "node_modules/**"]
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Launch Client & Server",
+      "configurations": ["Launch Client", "Launch Server"]
+    }
+  ]
 }

@@ -1,20 +1,5 @@
 {
   "name": "axios-client",
   "version": "1.0.0",
-  "description": "Axios client package",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "dev": "tsx watch --inspect=9229 ./src/client.ts",
-    "build": "tsc",
-    "clean": "rm -rf dist"
-  },
-  "dependencies": {
-    "axios": "^1.6.0"
-  },
-  "devDependencies": {
-    "tsx": "^4.0.0",
-    "typescript": "^5.3.0",
-    "@types/node": "^20.0.0"
-  }
-} 
+  "description": "Axios client package"
+}

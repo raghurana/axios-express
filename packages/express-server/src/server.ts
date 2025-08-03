@@ -45,7 +45,7 @@ app.post("/api/data", (req: Request, res: Response) => {
 
 app.put("/api/data", (req: Request, res: Response) => {
   const { name, value } = req.body;
-  console.log("req.headers", req.headers);
+  console.log("req.header", req.headers);
   console.log("Data received:", req.body);
   res.json({
     message: "Data received successfully",
