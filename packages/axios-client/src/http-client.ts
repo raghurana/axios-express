@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 
-export class ApiClient {
+export class HttpClient {
   private client: AxiosInstance;
 
   constructor(baseURL: string = "http://localhost:3000") {
@@ -37,23 +37,3 @@ export class ApiClient {
     return response.data;
   }
 }
-
-// Example usage
-const client = new ApiClient();
-
-const example = async () => {
-  try {
-    const data = await client.get("/api/health");
-    console.log("Health check response:", data);
-
-    const data2 = await client.put("/api/data", {
-      name: "John Doe",
-      value: "123",
-    });
-    console.log("Data response:", data2);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-};
-
-example();

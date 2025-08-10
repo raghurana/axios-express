@@ -2,19 +2,19 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch Client",
+      "name": "Launch Axios Client Server",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "tsx",
       "args": [
         "watch",
-        "${workspaceFolder}/packages/axios-client/src/client.ts"
+        "${workspaceFolder}/packages/axios-client/src/server.ts"
       ],
       "cwd": "${workspaceFolder}",
       "skipFiles": ["<node_internals>/**", "node_modules/**"]
     },
     {
-      "name": "Launch Server",
+      "name": "Launch Express Server",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "tsx",
@@ -28,8 +28,8 @@
   ],
   "compounds": [
     {
-      "name": "Launch Client & Server",
-      "configurations": ["Launch Client", "Launch Server"]
+      "name": "Launch Both Servers",
+      "configurations": ["Launch Axios Client Server", "Launch Express Server"]
     }
   ]
 }
