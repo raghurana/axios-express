@@ -25,7 +25,9 @@ app.get("/health", (req: Request, res: Response) => {
 // Proxy endpoint that uses ApiClient to call the express-server
 app.get("/api/proxy/health", async (req: Request, res: Response) => {
   try {
-    const healthData = await apiClient.get("/api/health");
+    // Extract all incoming headers
+    const headers = req.headers as Record<string, string>;
+    const healthData = await apiClient.get("/api/health", headers);
     res.json({
       message: "Health check from express-server via ApiClient",
       data: healthData,
@@ -43,7 +45,9 @@ app.get("/api/proxy/health", async (req: Request, res: Response) => {
 // Proxy endpoint for getting data from express-server
 app.get("/api/proxy/data", async (req: Request, res: Response) => {
   try {
-    const data = await apiClient.get("/api/data");
+    // Extract all incoming headers
+    const headers = req.headers as Record<string, string>;
+    const data = await apiClient.get("/api/data", headers);
     res.json({
       message: "Data from express-server via ApiClient",
       data: data,
@@ -62,7 +66,13 @@ app.get("/api/proxy/data", async (req: Request, res: Response) => {
 app.post("/api/proxy/data", async (req: Request, res: Response) => {
   try {
     const { name, value } = req.body;
-    const response = await apiClient.post("/api/data", { name, value });
+    // Extract all incoming headers
+    const headers = req.headers as Record<string, string>;
+    const response = await apiClient.post(
+      "/api/data",
+      { name, value },
+      headers
+    );
     res.json({
       message: "Data posted to express-server via ApiClient",
       response: response,
@@ -81,7 +91,9 @@ app.post("/api/proxy/data", async (req: Request, res: Response) => {
 app.put("/api/proxy/data", async (req: Request, res: Response) => {
   try {
     const { name, value } = req.body;
-    const response = await apiClient.put("/api/data", { name, value });
+    // Extract all incoming headers
+    const headers = req.headers as Record<string, string>;
+    const response = await apiClient.put("/api/data", { name, value }, headers);
     res.json({
       message: "Data updated in express-server via ApiClient",
       response: response,
