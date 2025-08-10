@@ -8,7 +8,7 @@
       "runtimeExecutable": "tsx",
       "args": [
         "watch",
-        "${workspaceFolder}/packages/axios-client/src/server.ts"
+        "${workspaceFolder}/packages/axios-client/src/proxy-server.ts"
       ],
       "cwd": "${workspaceFolder}",
       "skipFiles": ["<node_internals>/**", "node_modules/**"]
